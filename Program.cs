@@ -91,7 +91,19 @@ namespace MiniBankSystem_OOP2
             balance -= amount;
             transactions.Add(new Transaction("Withdraw", amount));
             Console.WriteLine($"Withdrew: {amount} OMR");
+
         }
+        
+        public void ViewTransactionHistory()
+        {
+            Console.WriteLine("Transaction History:");
+            foreach (var t in transactions)
+            {
+                Console.WriteLine(t.ToString());
+            }
+        }
+
+
     }
 
 

@@ -61,6 +61,21 @@ namespace MiniBankSystem_OOP2
             balance = 0;
             transactions = new List<Transaction>();
         }
+
+        public void Deposit(decimal amount) 
+        {
+            if (amount <= 0) 
+            {
+                Console.WriteLine("Amount must be positive.");
+                return;
+            }
+
+            balance += amount;
+            transactions.Add(new Transaction("Deposit", amount)); 
+            Console.WriteLine($"Deposited: {amount} OMR"); 
+        }
+
+
     }
 
 }

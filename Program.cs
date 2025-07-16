@@ -52,7 +52,17 @@ namespace MiniBankSystem_OOP2
         }
 
         public List<Transaction> Transactions => transactions;
+
+        //Constructor 
+        public Account(string name, string id)
+        {
+            accountHolderName = name;
+            nationalId = id;
+            balance = 0;
+            transactions = new List<Transaction>();
+        }
     }
+
 }
 
 

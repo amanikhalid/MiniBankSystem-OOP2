@@ -27,36 +27,11 @@ namespace MiniBankSystem_OOP2
     }
     class Account
     {
-        public int Number { get; }
-        public string Name { get; }
-        public double Balance { get; private set; }
-        public string Password { get; }
-        public List<Transaction> Transactions { get; }
-        public int AccountNumber { get; private set; }
+        private string accountHolderName;
+        private string nationalId;
+        private decimal balance;
+        private List<Transaction> transactions;
 
-        public string NationalId { get; private set; }
-
-        public string UserType { get; set; }
-        public bool IsLocked { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
-
-        public string HashedPassword;
-
-        public Account(int number, string name, double balance, string hashedPassword)
-        {
-            AccountNumber = number;
-            Name = name;
-            Balance = balance;
-            HashedPassword = hashedPassword;
-            NationalId = "";
-            UserType = "customer";
-            Phone = "";
-            Address = "";
-            IsLocked = false;
-            Transactions = new List<Transaction>();
-
-        }
 
     }
 }

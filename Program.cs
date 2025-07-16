@@ -159,25 +159,27 @@ namespace MiniBankSystem_OOP2
 
         class Transaction
         {
-            private string type;
-            private decimal amount;
-            private DateTime date;
-
-            public Transaction(string type, decimal amount)
-            {
-                this.type = type;
-                this.amount = amount;
-                this.date = DateTime.Now;
-            }
+            public DateTime Date { get; set; }
+            public string Type { get; set; } // Deposit or Withdraw
+            public double Amount { get; set; }
 
             public override string ToString()
             {
-                return $"{date.ToShortDateString()} {type}: {amount} OMR";
+                return $"{Date}|{Type}|{Amount}";
             }
 
+            public static Transaction FromString(string line)
+            {
+                var parts = line.Split('|');
+                return new Transaction
+                {
+                    Date = DateTime.Parse(parts[0]),
+                    Type = parts[1],
+                    Amount = double.Parse(parts[2])
+                };
+            }
 
         }
-
 
     }
 }

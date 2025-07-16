@@ -61,7 +61,7 @@ namespace MiniBankSystem_OOP2
             balance = 0;
             transactions = new List<Transaction>();
         }
-
+        // Logic Methods
         public void Deposit(decimal amount) 
         {
             if (amount <= 0) 
@@ -72,13 +72,32 @@ namespace MiniBankSystem_OOP2
 
             balance += amount;
             transactions.Add(new Transaction("Deposit", amount)); 
-            Console.WriteLine($"Deposited: {amount} OMR"); 
+            Console.WriteLine($"Deposited: {amount} OMR");
+
         }
-
-
+        // Transaction class
+        public void Withdraw(decimal amount)
+        {
+            if (amount <= 0)
+            {
+                Console.WriteLine("Amount must be positive.");
+                return;
+            }
+            if (amount > balance)
+            {
+                Console.WriteLine("Insufficient funds.");
+                return;
+            }
+            balance -= amount;
+            transactions.Add(new Transaction("Withdraw", amount));
+            Console.WriteLine($"Withdrew: {amount} OMR");
+        }
     }
 
+
 }
+
+
 
 
 

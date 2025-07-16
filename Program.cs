@@ -39,6 +39,12 @@ namespace MiniBankSystem_OOP2
             set { accountHolderName = value; }
         }
 
+        public string NationalId
+        {
+            get { return nationalId; }
+            set { nationalId = value; }
+        }
+
     }
 }
 

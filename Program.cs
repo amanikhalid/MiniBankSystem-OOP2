@@ -44,110 +44,142 @@ namespace MiniBankSystem_OOP2
                 Console.Write("Option: ");
                 string option = Console.ReadLine();
 
+                switch (option)
+                {
+                    case "1":
+                        Console.Write("Enter amount to deposit: ");
+                        decimal dep = Convert.ToDecimal(Console.ReadLine());
+                        userAccount.Deposit(dep);
+                        break;
+
+                    case "2":
+                        Console.Write("Enter amount to withdraw: ");
+                        decimal wd = Convert.ToDecimal(Console.ReadLine());
+                        userAccount.Withdraw(wd);
+                        break;
+
+                    case "3":
+                        Console.WriteLine($"Current Balance: {userAccount.Balance} OMR");
+                        break;
+
+                    case "4":
+                        userAccount.ViewTransactionHistory();
+                        break;
+
+                    case "5":
+                        Console.WriteLine("Thank you for using Mini Bank System. Goodbye!");
+                        return;
+
+                    default:
+                        Console.WriteLine("Invalid option, try again.");
+                        break;
+                }
+
             }
         }
-    class Account
-    {
-        private string accountHolderName;
-        private string nationalId;
-        private decimal balance;
-        private List<Transaction> transactions;
-
-        // Get and Set
-        public string AccountHolderName
+        class Account
         {
-            get { return accountHolderName; }
-            set { accountHolderName = value; }
-        }
+            private string accountHolderName;
+            private string nationalId;
+            private decimal balance;
+            private List<Transaction> transactions;
 
-        public string NationalId
-        {
-            get { return nationalId; }
-            set { nationalId = value; }
-        }
-
-        public decimal Balance
-        {
-            get { return balance; }
-            private set { balance = value; }
-        }
-
-        public List<Transaction> Transactions => transactions;
-
-        //Constructor 
-        public Account(string name, string id)
-        {
-            accountHolderName = name;
-            nationalId = id;
-            balance = 0;
-            transactions = new List<Transaction>();
-        }
-        // Logic Methods
-        public void Deposit(decimal amount)
-        {
-            if (amount <= 0)
+            // Get and Set
+            public string AccountHolderName
             {
-                Console.WriteLine("Amount must be positive.");
-                return;
+                get { return accountHolderName; }
+                set { accountHolderName = value; }
             }
 
-            balance += amount;
-            transactions.Add(new Transaction("Deposit", amount));
-            Console.WriteLine($"Deposited: {amount} OMR");
+            public string NationalId
+            {
+                get { return nationalId; }
+                set { nationalId = value; }
+            }
+
+            public decimal Balance
+            {
+                get { return balance; }
+                private set { balance = value; }
+            }
+
+            public List<Transaction> Transactions => transactions;
+
+            //Constructor 
+            public Account(string name, string id)
+            {
+                accountHolderName = name;
+                nationalId = id;
+                balance = 0;
+                transactions = new List<Transaction>();
+            }
+            // Logic Methods
+            public void Deposit(decimal amount)
+            {
+                if (amount <= 0)
+                {
+                    Console.WriteLine("Amount must be positive.");
+                    return;
+                }
+
+                balance += amount;
+                transactions.Add(new Transaction("Deposit", amount));
+                Console.WriteLine($"Deposited: {amount} OMR");
+
+            }
+            // Transaction class
+            public void Withdraw(decimal amount)
+            {
+                if (amount <= 0)
+                {
+                    Console.WriteLine("Amount must be positive.");
+                    return;
+                }
+                if (amount > balance)
+                {
+                    Console.WriteLine("Insufficient funds.");
+                    return;
+                }
+                balance -= amount;
+                transactions.Add(new Transaction("Withdraw", amount));
+                Console.WriteLine($"Withdrew: {amount} OMR");
+
+            }
+
+            public void ViewTransactionHistory()
+            {
+                Console.WriteLine("Transaction History:");
+                foreach (var t in transactions)
+                {
+                    Console.WriteLine(t.ToString());
+                }
+            }
 
         }
-        // Transaction class
-        public void Withdraw(decimal amount)
+
+        class Transaction
         {
-            if (amount <= 0)
+            private string type;
+            private decimal amount;
+            private DateTime date;
+
+            public Transaction(string type, decimal amount)
             {
-                Console.WriteLine("Amount must be positive.");
-                return;
+                this.type = type;
+                this.amount = amount;
+                this.date = DateTime.Now;
             }
-            if (amount > balance)
+
+            public override string ToString()
             {
-                Console.WriteLine("Insufficient funds.");
-                return;
+                return $"{date.ToShortDateString()} {type}: {amount} OMR";
             }
-            balance -= amount;
-            transactions.Add(new Transaction("Withdraw", amount));
-            Console.WriteLine($"Withdrew: {amount} OMR");
+
 
         }
 
-        public void ViewTransactionHistory()
-        {
-            Console.WriteLine("Transaction History:");
-            foreach (var t in transactions)
-            {
-                Console.WriteLine(t.ToString());
-            }
-        }
 
     }
-
-    class Transaction
-    {
-        private string type;
-        private decimal amount;
-        private DateTime date;
-
-        public Transaction(string type, decimal amount)
-        {
-            this.type = type;
-            this.amount = amount;
-            this.date = DateTime.Now;
-        }
-
-        public override string ToString()
-        {
-            return $"{date.ToShortDateString()} {type}: {amount} OMR";
-        }
-
-
-    }
-
-
 }
 
 

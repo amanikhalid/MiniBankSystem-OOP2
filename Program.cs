@@ -50,6 +50,8 @@ namespace MiniBankSystem_OOP2
             get { return balance; }
             private set { balance = value; }
         }
+
+        public List<Transaction> Transactions => transactions;
     }
 }
 

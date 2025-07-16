@@ -32,6 +32,12 @@ namespace MiniBankSystem_OOP2
         private decimal balance;
         private List<Transaction> transactions;
 
+        // Get and Set
+        public string AccountHolderName
+        {
+            get { return accountHolderName; }
+            set { accountHolderName = value; }
+        }
 
     }
 }

@@ -118,6 +118,10 @@ namespace MiniBankSystem_OOP2
             this.date = DateTime.Now;
         }
 
+        public override string ToString()
+        {
+            return $"{date.ToShortDateString()} {type}: {amount} OMR";
+        }
 
 
     }

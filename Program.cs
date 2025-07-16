@@ -62,16 +62,16 @@ namespace MiniBankSystem_OOP2
             transactions = new List<Transaction>();
         }
         // Logic Methods
-        public void Deposit(decimal amount) 
+        public void Deposit(decimal amount)
         {
-            if (amount <= 0) 
+            if (amount <= 0)
             {
                 Console.WriteLine("Amount must be positive.");
                 return;
             }
 
             balance += amount;
-            transactions.Add(new Transaction("Deposit", amount)); 
+            transactions.Add(new Transaction("Deposit", amount));
             Console.WriteLine($"Deposited: {amount} OMR");
 
         }
@@ -93,7 +93,7 @@ namespace MiniBankSystem_OOP2
             Console.WriteLine($"Withdrew: {amount} OMR");
 
         }
-        
+
         public void ViewTransactionHistory()
         {
             Console.WriteLine("Transaction History:");
@@ -103,11 +103,21 @@ namespace MiniBankSystem_OOP2
             }
         }
 
-
     }
 
+    class Transaction
+    {
+        private string type;
+        private decimal amount;
+        private DateTime date;
 
+
+
+
+
+    }
 }
+
 
 
 

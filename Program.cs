@@ -43,7 +43,20 @@ namespace MiniBankSystem_OOP2
 
         public string HashedPassword;
 
+        public Account(int number, string name, double balance, string hashedPassword)
+        {
+            AccountNumber = number;
+            Name = name;
+            Balance = balance;
+            HashedPassword = hashedPassword;
+            NationalId = "";
+            UserType = "customer";
+            Phone = "";
+            Address = "";
+            IsLocked = false;
+            Transactions = new List<Transaction>();
 
+        }
 
     }
 }

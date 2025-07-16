@@ -111,7 +111,12 @@ namespace MiniBankSystem_OOP2
         private decimal amount;
         private DateTime date;
 
-
+        public Transaction(string type, decimal amount)
+        {
+            this.type = type;
+            this.amount = amount;
+            this.date = DateTime.Now;
+        }
 
 
 

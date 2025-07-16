@@ -23,6 +23,14 @@ namespace MiniBankSystem_OOP2
             //step 8: implemet methods which have logic
             //step 9: implement Main program method with it's logic (instantiate system objects )
 
+            Console.WriteLine(" Welcome to Mini Bank System ");
+            Console.Write("Enter your name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Enter your National ID: ");
+            string id = Console.ReadLine();
+
+            Account userAccount = new Account(name, id);
         }
     }
     class Account
@@ -125,6 +133,8 @@ namespace MiniBankSystem_OOP2
 
 
     }
+
+
 }
 
 

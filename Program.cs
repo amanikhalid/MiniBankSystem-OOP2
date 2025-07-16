@@ -181,6 +181,18 @@ namespace MiniBankSystem_OOP2
 
         }
 
+        class Review
+        {
+            public string Reviewer { get; set; }
+            public DateTime Date { get; set; }
+            public int Rating { get; set; }
+
+            public void Priting()
+            {
+                Console.WriteLine($"{Date}|{Reviewer}|Rating: {Rating}/5");
+            }
+        }
+
     }
 }
 

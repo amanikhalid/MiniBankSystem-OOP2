@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
+using System.Security.Principal;
 
 namespace MiniBankSystem_OOP2
 {
@@ -21,13 +22,29 @@ namespace MiniBankSystem_OOP2
             //step 8: implemet methods which have logic
             //step 9: implement Main program method with it's logic (instantiate system objects )
 
-
-
-
-
         }
     }
+
+    class User
+    {
+        public string Name { get; set; }
+        public string NationalID { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+
+        public User(string name, string nationalID, string phone, string email)
+        {
+            Name = name;
+            NationalID = nationalID;
+            Phone = phone;
+            Email = email;
+        }
+    }
+
 }
+
+
+
 
 
 

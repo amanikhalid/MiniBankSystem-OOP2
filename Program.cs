@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 using System.Security.Principal;
+using System.Transactions;
 
 namespace MiniBankSystem_OOP2
 {
@@ -24,23 +25,27 @@ namespace MiniBankSystem_OOP2
 
         }
     }
-
-    class User
+    class Account
     {
-        public string Name { get; set; }
-        public string NationalID { get; set; }
+        public int Number { get; }
+        public string Name { get; }
+        public double Balance { get; private set; }
+        public string Password { get; }
+        public List<Transaction> Transactions { get; }
+        public int AccountNumber { get; private set; }
+
+        public string NationalId { get; private set; }
+
+        public string UserType { get; set; }
+        public bool IsLocked { get; set; }
         public string Phone { get; set; }
-        public string Email { get; set; }
+        public string Address { get; set; }
 
-        public User(string name, string nationalID, string phone, string email)
-        {
-            Name = name;
-            NationalID = nationalID;
-            Phone = phone;
-            Email = email;
-        }
+        public string HashedPassword;
+
+
+
     }
-
 }
 
 

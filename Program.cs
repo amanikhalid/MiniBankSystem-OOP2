@@ -31,8 +31,21 @@ namespace MiniBankSystem_OOP2
             string id = Console.ReadLine();
 
             Account userAccount = new Account(name, id);
+
+            while (true)
+            {
+                Console.WriteLine("\nChoose an option:");
+                Console.WriteLine("1. Deposit");
+                Console.WriteLine("2. Withdraw");
+                Console.WriteLine("3. View Balance");
+                Console.WriteLine("4. View Transactions");
+                Console.WriteLine("5. Exit");
+
+                Console.Write("Option: ");
+                string option = Console.ReadLine();
+
+            }
         }
-    }
     class Account
     {
         private string accountHolderName;

@@ -45,6 +45,11 @@ namespace MiniBankSystem_OOP2
             set { nationalId = value; }
         }
 
+        public decimal Balance
+        {
+            get { return balance; }
+            private set { balance = value; }
+        }
     }
 }
 
